@@ -1,4 +1,4 @@
-```elixir 
+```ruby
 ## Módulos en elixir 
       ### Gato se usa para comentar una sola linea
       defmodule Calculadora do #Nombre del modulo inicia con mayusculas
