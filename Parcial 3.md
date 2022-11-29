@@ -275,8 +275,8 @@
       IO.puts(Numero.cero?("3"))
 ```
 ## CONDICIONALES
-      ### if
-      ```elixir
+### if
+```elixir
       defmodule Persona1 do
         def sexo(sex) do
           if sex == :m do
@@ -299,9 +299,9 @@
           end
         end
       end
-´´´
-      ### case
-      ```elixir
+```
+### case
+```elixir
       defmodule Persona3 do
         def sexo(sex) do
           case sex do
@@ -311,9 +311,9 @@
           end
         end
       end
-      ```
-      ### Match con funciones
-      ```elixir
+```
+### Match con funciones
+```elixir
       defmodule Persona4 do
         def sexo(sex) when sex == :m do
           "Masculino"
@@ -331,9 +331,9 @@
         def sexo(sex) when sex == :f, do: "Femenino"
         def sexo(_sex), do: "sexo desconocido"
       end
-      ```
-      ### cond
-      ```elixir
+```
+### cond
+```elixir
       defmodule Persona6 do
         def sexo(sex) do
           cond do
@@ -344,8 +344,8 @@
         end
       end
 ```
-      ### case
-      ```elixir
+### case
+```elixir
       defmodule Matematicas do
         def calculadora(opcion,{n1,n2}) do
           case opcion do
@@ -364,8 +364,8 @@
       IO.inspect Matematicas.calculadora("/",{5,0})
       IO.inspect Matematicas.calculadora("*",{5,4})
 ```
-      ### cond
-      ```elixir
+### cond
+```elixir
       defmodule DiaSemana do
         def dia(d) do
           cond do
@@ -453,7 +453,7 @@
       IO.puts DiaSemana3.dia("mA")
 ```
 ### unless
-      ```elixir
+```elixir
       defmodule MayorDeEdad do
         def mayor1(edad) do
           unless edad >= 18 do
@@ -511,8 +511,8 @@
       IO.inspect mayor.(5,4)
       IO.inspect mayor.(5,5)
 ```
-      ### Ejemplo 5
-      ```elixir
+### Ejemplo 5
+```elixir
       mayor = fn(n1,n2) ->
         if n1 > n2 do
           {:ok, "#{n1} > #{n2}"}
@@ -528,8 +528,8 @@
         IO.puts res
 ```
 ## Operador pipe
-      ### Ejercicio que resuelve la suma de una lista y lo eleva al cuadrado
-      ```elixir
+### Ejercicio que resuelve la suma de una lista y lo eleva al cuadrado
+ ```elixir
       sum = 0
       lista = [1,2,3,4,5]
       lista = tl(lista)
@@ -601,7 +601,7 @@
         end
       end
       IO.puts("#{PipeTest.csc([1,2,3,4,5])}")
-´´´
+```
 ## Ciclo for
 ```elixir
       ### Ejemplo contar del 1 al 10
