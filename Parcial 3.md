@@ -94,7 +94,7 @@
         def cuadrado(l), do: l*l
       end
 
-      #Encapsulación
+      ## Encapsulación
       defmodule Geometria3 do
         def perimetro1(l), do: cuadrado(l) #Aquí si corre
         def perimetro2(l), do: Geometria3.cuadrado(l) #Aquí no corre por llamar al modulo
@@ -186,7 +186,7 @@
             IO.puts(msg)
           end
         end
-        
+## Documentación 
       #defmodule Geometria do
        #   @pi 3.141592 #atributos en tiempo de compilación
         #  def area(r) do
@@ -209,7 +209,7 @@
         def circunferencia(r), do: 2 * r * @pi
       end
 
-      #Secuencias de escape
+## Secuencias de escape
       IO.puts("1. Este es un mensaje")
       IO.puts("2. Este es un \n mensaje")
       IO.puts("3. Este es un \"mensaje\"")
@@ -219,12 +219,12 @@
       es un
       mensaje")
 
-      #sigils
+      ### sigils
       IO.puts(~s("este es un ejemplo de sigil" apuntes de Elixir))
       IO.puts("Este \t es \tun \t mensaje")
       IO.puts(~S("Este \t es \tun \t mensaje"))
 
-      #Concatenación de cadenas
+## Concatenación de cadenas
       defmodule Cadena do
         def concatenar(cad1, cad2, separador \\ " ") do
         cad1 <> separador <> cad2
@@ -233,7 +233,7 @@
       IO.puts(Cadena.concatenar("Hola", "Mundo"))
       IO.puts(Cadena.concatenar("Hola", "Mundo", "<->"))
 
-      #FUNCIONES
+## FUNCIONES
       defmodule Calculadora do
         def div(_,0) do
           {:error, "No se puede dividir por 0"}
@@ -256,7 +256,7 @@
       IO.inspect(Calculadora.div(5,0))
       IO.inspect(Calculadora.div(5,3))
 
-      #GUARDAS
+## GUARDAS
       defmodule Numero do
         def cero?(0), do: true
         def cero?(n) when is_integer(n), do: false
@@ -266,8 +266,8 @@
       IO.puts(Numero.cero?(2))
       IO.puts(Numero.cero?("3"))
 
-      #CONDICIONALES
-      #if
+## CONDICIONALES
+      ### if
       defmodule Persona1 do
         def sexo(sex) do
           if sex == :m do
@@ -291,7 +291,7 @@
         end
       end
 
-      #case
+      ### case
       defmodule Persona3 do
         def sexo(sex) do
           case sex do
@@ -302,7 +302,7 @@
         end
       end
 
-      #Match con funciones
+      ### Match con funciones
       defmodule Persona4 do
         def sexo(sex) when sex == :m do
           "Masculino"
@@ -321,7 +321,7 @@
         def sexo(_sex), do: "sexo desconocido"
       end
 
-      #cond
+      ### cond
       defmodule Persona6 do
         def sexo(sex) do
           cond do
@@ -332,7 +332,7 @@
         end
       end
 
-      #case
+      ### case
       defmodule Matematicas do
         def calculadora(opcion,{n1,n2}) do
           case opcion do
@@ -351,7 +351,7 @@
       IO.inspect Matematicas.calculadora("/",{5,0})
       IO.inspect Matematicas.calculadora("*",{5,4})
 
-      #cond
+      ### cond
       defmodule DiaSemana do
         def dia(d) do
           cond do
@@ -438,7 +438,7 @@
       IO.puts DiaSemana3.dia("Ma")
       IO.puts DiaSemana3.dia("mA")
 
-      #unless
+      ### unless
       defmodule MayorDeEdad do
         def mayor1(edad) do
           unless edad >= 18 do
@@ -460,7 +460,7 @@
         end
       end
 
-      #Funciones anonimas: No tienen nombre, Se pueden fijar a variables
+## Funciones anonimas: No tienen nombre, Se pueden fijar a variables
       defmodule Calculadora do
           def suma(n1,n2), do: n1+n2
       end
@@ -473,7 +473,7 @@
       IO.inspect(mayor?.(5,4))
       IO.inspect(mayor?.(5,5))
 
-      #Ejemplo con la salida personalizada
+      ### Ejemplo con la salida personalizada
       mayor? = fn(n1,n2) -> if n1 > n2 do :si else :no end end
       IO.inspect(mayor?.(4,5))
       IO.inspect(mayor?.(5,4))
@@ -495,7 +495,7 @@
       IO.inspect mayor.(5,4)
       IO.inspect mayor.(5,5)
 
-      #Ejemplo 5
+      ### Ejemplo 5
       mayor = fn(n1,n2) ->
         if n1 > n2 do
           {:ok, "#{n1} > #{n2}"}
@@ -510,8 +510,8 @@
         IO.puts status
         IO.puts res
 
-      #Operador pipe
-      #Ejercicio que resuelve la suma de una lista y lo eleva al cuadrado
+## Operador pipe
+      ### Ejercicio que resuelve la suma de una lista y lo eleva al cuadrado
       sum = 0
       lista = [1,2,3,4,5]
       lista = tl(lista)
@@ -542,7 +542,7 @@
       IO.inspect(sum)
       IO.puts("EL resultado es: #{sum*sum}")
 
-      #Solución 1
+      ### Solución 1
       defmodule PipeTest do
         def cuadrado(n), do: n*n
         def suma(lista) do
@@ -551,7 +551,7 @@
       end
       IO.puts("#{PipeTest.cuadrado(PipeTest.suma(tl([1,2,3,4,5])))}")
 
-      #Solución 2
+      ### Solución 2
       defmodule PipeTest do
         def cuadrado(n), do: n*n
         def suma(lista) do
@@ -566,7 +566,7 @@
       end
       IO.puts("#{PipeTest.csc([1,2,3,4,5])}")
 
-      # Herramienta de depuración (debugging)
+## Herramienta de depuración (debugging)
       defmodule PipeTest do
         def cuadrado(n), do: n*n
         def suma(lista) do
@@ -583,20 +583,20 @@
       end
       IO.puts("#{PipeTest.csc([1,2,3,4,5])}")
 
-      #Ciclo for
-      #Ejemplo contar del 1 al 10
+## Ciclo for
+      ### Ejemplo contar del 1 al 10
       for x <- 1..10 do
         IO.puts(x)
       end
 
-      #Ejemplo: sumar todos los numeros entre 1 y 10
+      ### Ejemplo: sumar todos los numeros entre 1 y 10
       #sum = 0 Se quita la suma para evitar los warnings
       for x <- 1..10 do
         sum = sum + x
       end
       IO.inspect(sum)
 
-      #Ejemplo: Asignando el for a la variable sum
+      ### Ejemplo: Asignando el for a la variable sum
       sum = for x <- 1..10 do
         x
       end
@@ -608,12 +608,12 @@
       end
       IO.puts Enum.sum(sum)
 
-      #Ejemplo con código condensado: una sola línea de código
+      ### Ejemplo con código condensado: una sola línea de código
       IO.puts Enum.sum(1..10)
 
-      # EJERCICIOS DE RECURSIÓN
+## EJERCICIOS DE RECURSIÓN
 
-      # Programa recursivo que imprima n veces un mensaje
+      ### Programa recursivo que imprima n veces un mensaje
       defmodule Repetir do
       def imprimir(msg, n) when n<= 1 do
           IO.puts("#{n}: #{msg}")
@@ -625,7 +625,7 @@
       end
       Repetir.imprimir("Hola",10)
 
-      # Programa que invierte el orden de los números
+      ### Programa que invierte el orden de los números
       defmodule Repetir do
         def imprimir(msg, n,ls) when n>= ls do
           IO.puts("#{n}: #{msg}")
@@ -637,7 +637,7 @@
       end
       Repetir.imprimir("Hola",1,10)
 
-      # Programa recursivo que sume todos los elementos de una
+      ### Programa recursivo que sume todos los elementos de una
       # serie de números en una lista
       defmodule Matematicas do
         def sum_list([], suma), do: suma
@@ -648,7 +648,7 @@
       IO.puts(Matematicas.sum_list([1,2,3,4,5,6,7,8,9,10],0))
       IO.puts(Matematicas.sum_list([1,3,5,7,9,10,15],0))
 
-      # Programa que obtiene el promedio de 10 calificaciones
+      ### Programa que obtiene el promedio de 10 calificaciones
       # entre 0 y 10 almacenadas en una lista
       defmodule Matematicas2 do
         def sum_list([], suma), do: suma
@@ -658,7 +658,7 @@
       end
       IO.puts(Matematicas2.sum_list([10,5,9,9,8,5,7,9,6,5],0)/10)
 
-      # Programa que crear una función promedio que calcule el
+      ### Programa que crear una función promedio que calcule el
       # promedio de 10 calificaciones almacenadas en una lista entre 0 y 10
       defmodule Matematicas3 do
         def sum_list([], suma), do: suma
@@ -671,7 +671,7 @@
       end
         IO.puts(Matematicas3.promedio([10,5,9,9,8,5,7,9,6,5],10))
 
-      # Programa que calcula el promedio de n calificaciones entre 0 y 10 en una lista
+      ### Programa que calcula el promedio de n calificaciones entre 0 y 10 en una lista
       defmodule Matematicas4 do
         def sum_list([], suma), do: suma
         def sum_list([head|tail], suma) do
@@ -687,7 +687,7 @@
       calificaciones = [10,5,9,9,8,5,7,9,6,5]
       IO.puts Enum.sum(calificaciones)/Enum.count(calificaciones)
 
-      # Programa que genera n calificaciones aleatorias entre 0 y 10 y obtener su promedio
+      ### Programa que genera n calificaciones aleatorias entre 0 y 10 y obtener su promedio
       max = 50
       calificaciones = for _x <- 1..max do
         Enum.random(0..10)
@@ -714,8 +714,8 @@
       IO.puts Estadistica.promedio(50,1,15)
       IO.puts Estadistica.promedio(-5,1,15)
 
-      # Programa recursivo que cuente de manera creciente de
-      #li (límite inferior) a ls (límite superior) para li>=ls inclusive
+      ### Programa recursivo que cuente de manera creciente de
+      ### li (límite inferior) a ls (límite superior) para li>=ls inclusive
 
       defmodule For_range do
         def for_to(n,ls) when n > ls do
@@ -734,8 +734,8 @@
       IO.puts("Contar de 12 a 5")
       For_range.for_to(12,5)
 
-      # Programa que sume los valores de los números consecutivos
-      # entre li y ls inclusive
+      ### Programa que sume los valores de los números consecutivos
+      ### entre li y ls inclusive
 
       defmodule For_range do
         def for_to(n,ls) when n >= ls do
@@ -751,5 +751,3 @@
         IO.puts("suma de los numeros 5 a 12")
         IO.puts For_range.for_to(5,12)
 ```
-
-
