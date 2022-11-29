@@ -1,6 +1,6 @@
 ## Módulos en elixir 
-   ### Gato se usa para comentar una sola linea
 ```elixir 
+      # Gato se usa para comentar una sola linea
       defmodule Calculadora do #Nombre del modulo inicia con mayusculas
           def suma(n1,n2) do
             n1+n2
