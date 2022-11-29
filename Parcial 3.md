@@ -1,6 +1,6 @@
-```ruby
 ## Módulos en elixir 
-      ### Gato se usa para comentar una sola linea
+   ### Gato se usa para comentar una sola linea
+```elixir 
       defmodule Calculadora do #Nombre del modulo inicia con mayusculas
           def suma(n1,n2) do
             n1+n2
@@ -93,8 +93,9 @@
         def perimetro2(l), do: Geometria2.cuadrado(l) #Puede o no llevar prefijo del nombre del módulo
         def cuadrado(l), do: l*l
       end
-
-      ## Encapsulación
+```
+## Encapsulación
+```elixir 
       defmodule Geometria3 do
         def perimetro1(l), do: cuadrado(l) #Aquí si corre
         def perimetro2(l), do: Geometria3.cuadrado(l) #Aquí no corre por llamar al modulo
@@ -186,7 +187,9 @@
             IO.puts(msg)
           end
         end
+ ```
 ## Documentación 
+```elixir 
       #defmodule Geometria do
        #   @pi 3.141592 #atributos en tiempo de compilación
         #  def area(r) do
@@ -208,8 +211,9 @@
         @doc "calcula el perimetro de un circulo"
         def circunferencia(r), do: 2 * r * @pi
       end
-
+```
 ## Secuencias de escape
+```elixir
       IO.puts("1. Este es un mensaje")
       IO.puts("2. Este es un \n mensaje")
       IO.puts("3. Este es un \"mensaje\"")
@@ -218,13 +222,15 @@
       IO.puts("6. Este
       es un
       mensaje")
-
-      ### sigils
+```
+   ### sigils
+   ```elixir
       IO.puts(~s("este es un ejemplo de sigil" apuntes de Elixir))
       IO.puts("Este \t es \tun \t mensaje")
       IO.puts(~S("Este \t es \tun \t mensaje"))
-
+```
 ## Concatenación de cadenas
+```elixir
       defmodule Cadena do
         def concatenar(cad1, cad2, separador \\ " ") do
         cad1 <> separador <> cad2
@@ -232,8 +238,9 @@
       end
       IO.puts(Cadena.concatenar("Hola", "Mundo"))
       IO.puts(Cadena.concatenar("Hola", "Mundo", "<->"))
-
+```
 ## FUNCIONES
+```elixir
       defmodule Calculadora do
         def div(_,0) do
           {:error, "No se puede dividir por 0"}
@@ -255,8 +262,9 @@
       end
       IO.inspect(Calculadora.div(5,0))
       IO.inspect(Calculadora.div(5,3))
-
+```
 ## GUARDAS
+```elixir
       defmodule Numero do
         def cero?(0), do: true
         def cero?(n) when is_integer(n), do: false
@@ -265,9 +273,10 @@
       IO.puts(Numero.cero?(0))
       IO.puts(Numero.cero?(2))
       IO.puts(Numero.cero?("3"))
-
+```
 ## CONDICIONALES
       ### if
+      ```elixir
       defmodule Persona1 do
         def sexo(sex) do
           if sex == :m do
@@ -290,8 +299,9 @@
           end
         end
       end
-
+´´´
       ### case
+      ```elixir
       defmodule Persona3 do
         def sexo(sex) do
           case sex do
@@ -301,8 +311,9 @@
           end
         end
       end
-
+      ```
       ### Match con funciones
+      ```elixir
       defmodule Persona4 do
         def sexo(sex) when sex == :m do
           "Masculino"
@@ -320,8 +331,9 @@
         def sexo(sex) when sex == :f, do: "Femenino"
         def sexo(_sex), do: "sexo desconocido"
       end
-
+      ```
       ### cond
+      ```elixir
       defmodule Persona6 do
         def sexo(sex) do
           cond do
@@ -331,8 +343,9 @@
           end
         end
       end
-
+```
       ### case
+      ```elixir
       defmodule Matematicas do
         def calculadora(opcion,{n1,n2}) do
           case opcion do
@@ -350,8 +363,9 @@
       IO.inspect Matematicas.calculadora("/",{5,4})
       IO.inspect Matematicas.calculadora("/",{5,0})
       IO.inspect Matematicas.calculadora("*",{5,4})
-
+```
       ### cond
+      ```elixir
       defmodule DiaSemana do
         def dia(d) do
           cond do
@@ -437,8 +451,9 @@
       IO.puts DiaSemana3.dia("D")
       IO.puts DiaSemana3.dia("Ma")
       IO.puts DiaSemana3.dia("mA")
-
-      ### unless
+```
+### unless
+      ```elixir
       defmodule MayorDeEdad do
         def mayor1(edad) do
           unless edad >= 18 do
@@ -459,8 +474,9 @@
           end
         end
       end
-
+```
 ## Funciones anonimas: No tienen nombre, Se pueden fijar a variables
+```elixir
       defmodule Calculadora do
           def suma(n1,n2), do: n1+n2
       end
@@ -494,8 +510,9 @@
       IO.inspect mayor.(4,5)
       IO.inspect mayor.(5,4)
       IO.inspect mayor.(5,5)
-
+```
       ### Ejemplo 5
+      ```elixir
       mayor = fn(n1,n2) ->
         if n1 > n2 do
           {:ok, "#{n1} > #{n2}"}
@@ -509,9 +526,10 @@
         {status, res} = mayor.(5,4)
         IO.puts status
         IO.puts res
-
+```
 ## Operador pipe
       ### Ejercicio que resuelve la suma de una lista y lo eleva al cuadrado
+      ```elixir
       sum = 0
       lista = [1,2,3,4,5]
       lista = tl(lista)
@@ -565,8 +583,9 @@
         end
       end
       IO.puts("#{PipeTest.csc([1,2,3,4,5])}")
-
+```
 ## Herramienta de depuración (debugging)
+```elixir
       defmodule PipeTest do
         def cuadrado(n), do: n*n
         def suma(lista) do
@@ -582,8 +601,9 @@
         end
       end
       IO.puts("#{PipeTest.csc([1,2,3,4,5])}")
-
+´´´
 ## Ciclo for
+```elixir
       ### Ejemplo contar del 1 al 10
       for x <- 1..10 do
         IO.puts(x)
@@ -610,9 +630,9 @@
 
       ### Ejemplo con código condensado: una sola línea de código
       IO.puts Enum.sum(1..10)
-
+```
 ## EJERCICIOS DE RECURSIÓN
-
+```elixir
       ### Programa recursivo que imprima n veces un mensaje
       defmodule Repetir do
       def imprimir(msg, n) when n<= 1 do
